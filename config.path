@@ -1,0 +1,7 @@
+
+root = "./"
+luaservice = root.."service/?.lua;"..root.."logic/login/?.lua;"..root.."logic/services/?/start.lua;"..root.."?.lua"
+lualoader = root .. "lualib/loader.lua"
+lua_path = root.."lualib/?.lua;"..root.."lualib/?/init.lua;"..root.."logic/base/?.lua;"
+lua_cpath = root .. "luaclib/?.so"
+snax = root.."examples/?.lua;"..root.."test/?.lua"

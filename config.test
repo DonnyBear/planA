@@ -1,0 +1,19 @@
+
+root = "./"
+luaservice = root.."service/?.lua;"..root.."logic/login/?.lua;"..root.."?.lua"
+lualoader = root .. "lualib/loader.lua"
+lua_path = root.."lualib/?.lua;"..root.."lualib/?/init.lua;"..root.."logic/base/?.lua;"
+lua_cpath = root .. "luaclib/?.so"
+snax = root.."examples/?.lua;"..root.."test/?.lua"
+
+
+preload = "./logic/manager/preload.lua"	-- run preload.lua before every lua service run
+thread = 8
+logger = nil
+logpath = "."
+harbor = 0
+start = "test"	-- main script
+bootstrap = "snlua bootstrap"	-- The service for bootstrap
+-- snax_interface_g = "snax_g"
+cpath = root.."cservice/?.so"
+-- daemon = "./skynet.pid"
