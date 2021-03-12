@@ -1,0 +1,24 @@
+login模块
+main 启动logind服务     -- 登陆服务器
+logind.lua ->{
+    server->{
+        host,
+        port,
+        multilogin,
+        name,
+        auth_handler,   -- 对接平台token验证
+        login_handler,  -- 登陆成功时，发送消息给对应的服，进行登陆
+        command_handler,-- 为服跟登陆服务器注册消息处理方法
+    }
+}
+
+之后启动gated服务，并将登陆服务器地址赋值给gated   -- 网关
+gated.lua ->{
+    server->{
+        register_handler,   -- 当端口打开时候触发，需要发送到登陆服务器注册服
+        login_handler,      -- 当玩家在登陆服务器登陆验证成功后触发，需要做的是判定这个用户是否真的可以登陆，不行只要调用error即可
+        logout_handler,     -- 玩家登出时被调用
+        kick_handler,       -- 登陆服务器踢玩家,需要调用logout
+        disconnect_handler, -- 当用户的通讯连接断开后，会触发这个事件
+    }
+}
